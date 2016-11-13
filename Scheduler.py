@@ -67,14 +67,12 @@ class Fwrapper(object):
         self.childcount = childCount
         self.name = name
 
-
 addw = Fwrapper(lambda x:x[0] + x[1], 2, 'ADD')
 subw = Fwrapper(lambda x:x[0] - x[1], 2, 'SUB')
 mulw = Fwrapper(lambda x:x[0] * x[1], 2, 'MUL')
 gtw = Fwrapper(lambda  x:x[0] > x[1], 2, 'GT')
 ifw = Fwrapper(lambda  x:x[1] if x[0] else x[2], 3, 'IF')
 flist = [addw, mulw, ifw, gtw, subw]
-
 
 #def func(x,y):
 #    if x>3:
@@ -166,5 +164,7 @@ def getrankfunction(dataset):
     return rankfunction
 
 def main():
-    getrankfunction(buildhiddenset())
+    rf = getrankfunction(buildhiddenset())
     evolve(2,500,rf,mutationrate=0.2,breedingrate=0.1,pexp=0.7,pnew=0.1)
+
+main()
